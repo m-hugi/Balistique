@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Balistique</string>
+    <string name="trajectory_tab">Trajectory</string>
+    <string name="dragcoeff_tab">Drag Coefficient</string>
+    <string name="velocity_tab">Velocity</string>
+    <string name="velocity">Velocity (m/s): </string>
+    <string name="angle">Firing Angle (deg): </string>
+    <string name="drag_coefficient">Drag Coefficient</string>
+    <string name="projected_area">Projected Area (m²)</string>
+    <string name="mass">Mass (kg)</string>
+    <string name="air_density">Air Density (kg/m³)</string>
+    <string name="calc_button">Calculate</string>
+    <string name="range">Range</string>
+    <string name="flight_time">Flight Time</string>
+    <string name="peak_height">Peak Height</string>
+    <string name="peak_time">Time to Peak</string>
+    <string name="x_velocity">Horizontal Velocity</string>
+    <string name="y_velocity">Vertical Velocity</string>
+    <string name="terminal_velocity">Terminal Velocity</string>
+</resources>

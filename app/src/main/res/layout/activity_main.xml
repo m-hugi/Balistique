@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="360dp"
+        android:layout_height="0dp"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:minHeight="?actionBarSize"
+            android:padding="@dimen/appbar_padding"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+            android:textColor="#FFFFFF" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/velocity_label"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center|start"
+        android:text="@string/velocity"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/velocity_input"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+    <Spinner
+        android:id="@+id/mass_spinner"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mass_input"
+        app:layout_constraintTop_toBottomOf="@+id/angle_spinner" />
+
+    <TextView
+        android:id="@+id/angle_label"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center|start"
+        android:text="@string/angle"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/angle_input"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/velocity_label" />
+
+    <TextView
+        android:id="@+id/drag_label"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center|start"
+        android:text="@string/drag_coefficient"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/drag_input"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mass_label" />
+
+    <TextView
+        android:id="@+id/aird_label"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center|start"
+        android:text="@string/air_density"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/aird_input"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/area_label" />
+
+    <TextView
+        android:id="@+id/area_label"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center|start"
+        android:text="@string/projected_area"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/area_input"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drag_label" />
+
+    <TextView
+        android:id="@+id/mass_label"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center|start"
+        android:text="@string/mass"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/mass_input"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/angle_label" />
+
+    <Spinner
+        android:id="@+id/velocity_spinner"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/velocity_input"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+    <Spinner
+        android:id="@+id/drag_spinner"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/drag_input"
+        app:layout_constraintTop_toBottomOf="@+id/mass_spinner" />
+
+    <EditText
+        android:id="@+id/angle_input"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:paddingLeft="2.5dp"
+        android:paddingRight="2.5dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/angle_spinner"
+        app:layout_constraintStart_toEndOf="@+id/angle_label"
+        app:layout_constraintTop_toBottomOf="@+id/velocity_input"
+        tools:ignore="Autofill,LabelFor" />
+
+    <EditText
+        android:id="@+id/area_input"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:paddingLeft="2.5dp"
+        android:paddingRight="2.5dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/area_spinner"
+        app:layout_constraintStart_toEndOf="@+id/area_label"
+        app:layout_constraintTop_toBottomOf="@+id/drag_input"
+        tools:ignore="Autofill,LabelFor" />
+
+    <EditText
+        android:id="@+id/drag_input"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:paddingLeft="2.5dp"
+        android:paddingRight="2.5dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/drag_spinner"
+        app:layout_constraintStart_toEndOf="@+id/drag_label"
+        app:layout_constraintTop_toBottomOf="@+id/mass_input"
+        tools:ignore="Autofill,LabelFor" />
+
+    <EditText
+        android:id="@+id/aird_input"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:paddingLeft="2.5dp"
+        android:paddingRight="2.5dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/density_spinner"
+        app:layout_constraintStart_toEndOf="@+id/aird_label"
+        app:layout_constraintTop_toBottomOf="@+id/area_input"
+        tools:ignore="Autofill,LabelFor" />
+
+    <EditText
+        android:id="@+id/mass_input"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:paddingLeft="2.5dp"
+        android:paddingRight="2.5dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/mass_spinner"
+        app:layout_constraintStart_toEndOf="@+id/mass_label"
+        app:layout_constraintTop_toBottomOf="@+id/angle_input"
+        tools:ignore="Autofill,LabelFor" />
+
+    <EditText
+        android:id="@+id/velocity_input"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/border"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:paddingLeft="2.5dp"
+        android:paddingRight="2.5dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/velocity_spinner"
+        app:layout_constraintStart_toEndOf="@+id/velocity_label"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        tools:ignore="Autofill,LabelFor" />
+
+    <Spinner
+        android:id="@+id/density_spinner"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/aird_input"
+        app:layout_constraintTop_toBottomOf="@+id/area_spinner" />
+
+    <Spinner
+        android:id="@+id/area_spinner"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/area_input"
+        app:layout_constraintTop_toBottomOf="@+id/drag_spinner" />
+
+    <Spinner
+        android:id="@+id/angle_spinner"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/angle_input"
+        app:layout_constraintTop_toBottomOf="@+id/velocity_spinner" />
+
+    <Button
+        android:id="@+id/calculate_button"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="onCalculate"
+        android:text="@string/calc_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aird_input" />
+
+    <TextView
+        android:id="@+id/range_value"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:background="@drawable/border2"
+        android:gravity="center"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/range_spinner"
+        app:layout_constraintStart_toEndOf="@+id/range_label"
+        app:layout_constraintTop_toBottomOf="@+id/calculate_button" />
+
+    <TextView
+        android:id="@+id/timep_label"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center|start"
+        android:text="@string/peak_time"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/timep_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/peak_label" />
+
+    <Spinner
+        android:id="@+id/peak_spinner"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/timep_value"
+        app:layout_constraintTop_toBottomOf="@+id/height_spinner" />
+
+    <Spinner
+        android:id="@+id/time_spinner"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/peak_value"
+        app:layout_constraintTop_toBottomOf="@+id/range_spinner" />
+
+    <TextView
+        android:id="@+id/tvel_label"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center|start"
+        android:text="@string/terminal_velocity"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvel_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timep_label" />
+
+    <Spinner
+        android:id="@+id/range_spinner"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/range_value"
+        app:layout_constraintTop_toBottomOf="@+id/calculate_button" />
+
+    <Spinner
+        android:id="@+id/terminal_spinner"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvel_value"
+        app:layout_constraintTop_toBottomOf="@+id/peak_spinner" />
+
+    <Spinner
+        android:id="@+id/height_spinner"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/flight_value"
+        app:layout_constraintTop_toBottomOf="@+id/time_spinner" />
+
+    <TextView
+        android:id="@+id/range_label"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center|start"
+        android:text="@string/range"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculate_button" />
+
+    <TextView
+        android:id="@+id/peak_value"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border2"
+        android:gravity="center"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/time_spinner"
+        app:layout_constraintStart_toEndOf="@+id/flight_label"
+        app:layout_constraintTop_toBottomOf="@+id/range_value" />
+
+    <TextView
+        android:id="@+id/flight_label"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center|start"
+        android:text="@string/flight_time"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/peak_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/range_label" />
+
+    <TextView
+        android:id="@+id/flight_value"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border2"
+        android:gravity="center"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/height_spinner"
+        app:layout_constraintStart_toEndOf="@+id/peak_label"
+        app:layout_constraintTop_toBottomOf="@+id/peak_value" />
+
+    <TextView
+        android:id="@+id/timep_value"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border2"
+        android:gravity="center"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/peak_spinner"
+        app:layout_constraintStart_toEndOf="@+id/timep_label"
+        app:layout_constraintTop_toBottomOf="@+id/flight_value" />
+
+    <TextView
+        android:id="@+id/peak_label"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center|start"
+        android:text="@string/peak_height"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/flight_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flight_label" />
+
+    <TextView
+        android:id="@+id/tvel_value"
+        android:layout_width="150dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border2"
+        android:gravity="center"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/terminal_spinner"
+        app:layout_constraintStart_toEndOf="@+id/tvel_label"
+        app:layout_constraintTop_toBottomOf="@+id/timep_value" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
